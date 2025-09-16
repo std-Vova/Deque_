@@ -1,12 +1,11 @@
 #include "pch.h"
-#include "\\VALDEMAR\Users\Âאכüהולאנ\Desktop\Deque\Deque.h"
-#include "\\VALDEMAR\Users\Âאכüהולאנ\Desktop\Deque\Deque.cpp"
 #include <deque>
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <random>
 #include <iterator>
+#include "deque.h"
 
 int random(int max) {
 	return max + rand() % max;
