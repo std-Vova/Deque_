@@ -208,7 +208,7 @@ public:
 	using Alloc_traits = allocator_traits_<Allocator>;
 	static constexpr std::size_t bucket_size = 32;
 	static constexpr std::size_t out_size = 10;
-public:
+private:
 	Deque(ctor_for_allocation_t, std::size_t);
 
 	template <bool is_const>
@@ -260,6 +260,7 @@ public:
 	Deque(const Deque&);
 	Deque(Deque&&) noexcept;
 	Deque(std::initializer_list<T>);
+	~Deque();
 
 	template <Input_iterator iter>
 	Deque(iter, iter);
