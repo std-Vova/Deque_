@@ -90,7 +90,7 @@ void standart_allocator<T>::destroy(U* ptr) {
 	ptr->~U();
 }
 
-ctor_for_allocation_t ctor_for_allocation_tag;
+//ctor_for_allocation_t ctor_for_allocation_tag;
 
 // Ctors base_iterator
 template <typename T, typename Allocator>
@@ -775,4 +775,19 @@ auto Deque<T, Allocator>::base_iterator<c>::operator-(int count) const -> Deque<
 	Deque<T, Allocator>::base_iterator<c> temp = *this;
 	temp -= count;
 	return temp;
+}
+
+template <typename T, typename Allocator>
+Deque<T, Allocator>::~Deque() {
+	size_t i = start.first;
+	size_t j = start.second;
+
+	for (; i < sz; ++i) {
+		for (; j < bucket_size; ++j) {
+			Alloc_traits::destroy(alloc, &arr[i][j]);
+		}
+		j = 0;
+		Alloc_traits::deallocate(alloc, arr[i]);
+	}
+	delete[] arr;
 }

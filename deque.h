@@ -331,4 +331,5 @@ private:
 template <typename Iter>
 Deque(Iter, Iter) -> Deque<typename std::iterator_traits<Iter>::value_type>;
 
+static ctor_for_allocation_t ctor_for_allocation_tag;
 

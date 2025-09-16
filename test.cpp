@@ -6,6 +6,7 @@
 #include <random>
 #include <iterator>
 #include "deque.h"
+#include "Deque.cpp"
 
 int random(int max) {
 	return max + rand() % max;
